@@ -1,0 +1,24 @@
+---
+title: "R Markdown Documents - Part 1"
+author: "Stephanie Thrasher"
+date: "2022-09-21"
+output: 
+  html_document:
+    toc: TRUE 
+    toc_float: TRUE
+---
+# Introduction 
+
+My name is **Stephanie Thrasher** and I am in the *GIST Masters* program
+
+# What I want to learn 
+
+1. Programming in R 
+2. Basic statistics (never had a real class)
+3. Model thinking 
+
+# Favorite Courses 
+
+* Geologic Mapping 
+* Basic Python w/ Bill Clement (I forgot the name)
+* Geomorphology 

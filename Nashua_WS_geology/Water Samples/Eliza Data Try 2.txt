@@ -1,0 +1,20 @@
+Column1	Column2	Column3	Column4	Column5	Column6	Column7	Column8	Column9	Column10	Column11	Column12	Column13	Column14	Column15	Column16	Column17	Column18	Column19	Column20	Column21	Column22	Column23	Column24	Column25	Column26	Column27	Column28	Column29	Column30	Column31	Column32	Column33	Column34	Column35	Column36	Column37	Column38	Column39	Column40	Column41	Column42	Column43	Column44
+Column1	Column2	Column3	Column4	Column5	Column6	Column7	Column8	Column9	Column10	Column11	Column12	Column13	Column14	Column15	Column16	Column17	Column18	Column19	Column20	Column21	Column22	Column23	Column24	Column25	Column26	Column27	Column28	Column29	Column30	Column31	Column32	Column33	Column34	Column35	Column36	Column37	Column38	Column39	Column40	Column41	Column42	Column43	Column44
+Sampling Site	Latitude	Longitude	sample name	Al	Fe	Ca	K	Mg	Mn	Na	S	P	Ti	V	Cr	Mn	Co	Ni	Cu	Zn	Ga	As	Se	Pd	Ag	Cd	Sn	Ce	Pr	Nd	Sm	Eu	Gd	Tb	Dy	Ho	Er	Tm	Yb	W	Pb	Th	U
+Sample 001	42.627 N	71.855 W		mg/g	mg/g	mg/g	mg/g	mg/g	mg/g	mg/g	mg/g	mg/g	æg/g	æg/g	æg/g	æg/g	æg/g	æg/g	æg/g	æg/g	æg/g	æg/g	æg/g	æg/g	æg/g	æg/g	æg/g	æg/g	æg/g	æg/g	æg/g	æg/g	æg/g	æg/g	æg/g	æg/g	æg/g	æg/g	æg/g	æg/g	æg/g	æg/g	æg/g
+Sample 002	42.625 N	71.814 W	sample 001	94	76	1	41	10	1	1	2	1	527	138	87	433	20	5	25	102	27	6	17	5	2	0	2	21	2	15	2	3	1	0	1	0	4	0	0	1	11	8	1
+Sample 003	42.588 N	71.834 W	sample 001B	91	44	13	21	10	0	16	1	1	569	79	47	343	26	18	20	132	19	58	19	60	4	0	2	240	23	91	17	1	13	2	6	1	51	0	2	2	25	34	10
+			sample 002	78	14	8	36	3	0	13	0	1	241	13	6	360	32	10	8	59	17	10	8	35	6	0	2	112	14	57	10	3	7	1	3	1	29	0	1	2	33	37	5
+Sample 005	42.561 N	71.791 W	sample 002B	98	15	1	70	2	1	15	1	1	245	11	5	825	29	5	9	88	24	8	7	48	6	0	3	173	17	80	13	6	10	2	5	1	39	0	2	1	77	34	8
+Sample 006	42.613 N	71.955 W	sample 003	113	69	0	48	15	1	2	1	0	975	240	128	1436	43	26	51	206	30	8	31	38	5	0	3	18	2	12	2	3	1	0	1	0	4	0	1	3	18	13	2
+			sample 004D	81	16	10	33	3	1	15	1	1	334	20	6	617	56	13	9	81	22	9	12	37	3	0	3	98	10	44	8	2	6	1	3	1	23	0	1	2	37	32	1
+Sample 008	42.631 N	71.710 W	sample 005	97	53	2	21	7	1	4	1	1	704	152	103	1446	128	14	24	148	20	20	21	127	9	0	5	82	10	40	9	2	5	1	5	1	25	1	4	10	24	22	3
+Sample 009	42.592 N	71.750 W	sample 005B	93	42	1	19	5	0	4	1	0	637	134	83	511	53	11	28	140	19	32	21	99	7	0	4	65	8	34	7	2	4	1	4	1	19	1	3	5	35	15	3
+Sample 010	42.579 N	71.697 W	sample 006A	51	27	10	9	4	1	9	1	1	323	36	33	1620	66	15	22	69	8	5	12	41	4	0	3	42	6	21	5	0	3	1	2	1	13	0	2	3	9	9	3
+Sample 011	42.573 N	71.875 W	sample 006B	93	23	2	27	5	0	9	1	1	237	82	46	219	17	5	16	99	19	5	9	36	2	0	5	76	8	40	8	3	5	1	3	1	20	0	2	2	15	13	4
+			sample 006C	112	56	1	43	9	1	6	2	0	405	157	78	820	19	5	29	95	26	78	16	11	4	0	6	44	5	24	4	2	3	0	1	0	9	0	1	1	14	15	3
+			sample 007B	87	7	8	36	1	0	20	1	0	44	3	5	155	43	10	11	22	26	4	3	35	2	0	5	37	3	21	3	4	2	0	1	0	8	0	1	1	45	13	4
+			sample 008A	59	28	60	11	17	1	9	1	1	370	61	189	1240	198	89	21	73	10	13	11	95	5	0	5	74	5	24	5	1	3	1	3	1	14	0	2	7	12	12	2
+			sample 008B	80	40	24	19	20	1	10	1	1	452	104	166	845	70	67	23	106	16	129	14	78	4	0	4	67	7	35	6	2	4	1	3	1	18	0	2	3	24	11	2
+			sample 009	78	40	21	18	22	1	10	1	1	441	89	192	808	136	68	20	112	16	9	15	32	4	0	3	56	4	20	4	2	2	0	2	0	9	0	1	6	15	10	1
+			sample 010	65	35	16	16	18	0	9	1	1	487	75	218	564	445	52	14	148	13	15	15	70	6	0	4	69	6	28	5	1	3	1	3	1	14	0	2	9	11	16	2
