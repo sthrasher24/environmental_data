@@ -1,0 +1,6 @@
+"0","#Let's select the first row of the ginkgo data. 
+ginkgo = data.frame(read.csv(here('data', 'ginkgo_data_2022.csv')))
+"
+"2","Error in here(""data"", ""ginkgo_data_2022.csv"") : 
+  could not find function ""here""
+"

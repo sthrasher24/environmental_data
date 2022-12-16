@@ -1,0 +1,310 @@
+---
+title: "Final R Reference Guide"
+author: "Stephanie Thrasher"
+date: "2022-12-04"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# R Reference Guide {.tabset .tabset-pills}
+
+
+## Loading Data and Packages
+
+Loading packages into R is simple, but to do so we need the `library()` and `require()` functions. These functions allow us to load in any packages to R. These two functions load in any add-on packages to R that you may need. These two functions are actually interchangeable.
+
+Let's an example using the `palmerpenguins` and `here` packages. 
+```{r}
+#Let's use require() for here 
+require(here)
+
+#And we can use library() for palmerpenguins 
+library(palmerpenguins)
+```
+    
+Now that we have the packages loaded, we can load in the data. We will use the `here()` and `read.csv()` functions to read in the ginkgoes CSV. Here finds your file while `read.csv` reads the csv into R. We will also be using data.frame to make the data into a collection of variables that is similar to a matrix. This will enable us to call the data later on. 
+
+```{r}
+#Make sure to read your data into a variable when loading it into R 
+ginkgo = data.frame(read.csv(here('data', 'ginkgo_data_2022.csv')))
+```
+
+## Data Stuctures 
+Creating different data structures is useful when working with any dataset. They allow the user to more easily reference the data later on and call desired attributes. 
+
+We will be looking at these functions: 
+* `c()`
+* `length()`
+* `matrix()`
+* `data.frame()` 
+  + `nrow()`
+  + `ncol()`
+  + `dim()`
+  
+The function `c()` combines or concatenates its arguments into a vector (a 1-dimensional data structure consisting of 1 or more elements).
+
+* All of the elements must be of the same type.
+  + I can’t combine character and numeric types in the same call to `c()`
+  
+Here’s two examples using numeric and character data types:
+
+```{r}
+#Create a vector of numbers: 
+num_vec = c(1, 4, 8, 9, 13)
+
+#Create a vector of characters: 
+char_vec = c("a", "fish", "data is cool")
+```
+I can show the contents of a vector by typing the name of the vector, or by using the print function. 
+
+```{r}
+#Typing the name of the vector into the console prints the contents
+num_vec
+```
+```{r}
+#The print() function accomplishes the same task:
+print(num_vec)
+```
+
+The length function allows the user to see or set the length of vectors, or any other defined object in R.
+
+Here is two examples where it can be used: 
+
+```{r}
+#Using the vector of number from above
+num_vec = c(1, 4, 8, 9, 13)
+length(num_vec)
+```
+
+```{r}
+#Let's use the length function to set the length of an object 
+object = 1:5 
+print(length(object))
+
+length(object) = 10 
+print(length(object))
+```
+
+The matrix function creates a matrix from a given set a values. It was take the data that is assigned to it and create a matrix from that using the specified number of rows and columns. 
+
+* If the number of rows (nrow) and columns (ncol) are not specified then a matrix of one-column is returned. 
+* If either `nrow()` or `ncol()` is not specified then R will make an attempt to create the matrix from the given data. 
+* If there are not enough elements in data to satisfy `nrow()` or `ncol()`, then the values from the data will be reused. * The matrix function will return NULL, NA, etc. if the length of the data is zero. 
+* As default 'by row' is set to FALSE, meaning the matrix will fill by columns. If 'by row' is set to TRUE then it   will fill by rows. 
+
+Let's create a simple matrix. 
+
+```{r}
+#Let's leave by row false for now 
+matrix(data = c(1:20), nrow = 2, ncol = 10, byrow = FALSE)
+```
+```{r}
+#What happens if we set by row to TRUE?
+matrix(data = c(1:20), nrow = 2, ncol = 10, byrow = TRUE)
+```
+
+Data frames are the final data structure we will talk about. These are collections of variables held in two-dimensional table. These are the most common data structure in R and you will use them the most. They share similar properties of matrices and lists. 
+Here are some of the characteristics of the data frames: 
+
+* Each row name should be unique 
+* Column names need to be non-empty. 
+* The data type within the data frame can be of the numeric, factor, or character type. 
+* Each column needs to contain the same number to items 
+
+Let's create a simple data frame using our ginkgo data from before! 
+
+```{r}
+#Do you remember when we made the ginkgo data frame? 
+ginkgo = data.frame(read.csv(here('data', 'ginkgo_data_2022.csv')))
+```
+
+The functions `nrow()` and `ncol()` allow the user to see the number of rows and number of columns in x, x being a data frame, vector, or matrix. It will yield a single number with length one as the output. 
+
+We can use the ginkgo data frame to create examples of `nrow()` and `ncol()`. 
+
+```{r}
+#Syntax looks like : nrow(x) and ncol(x)
+nrow(ginkgo)
+ncol(ginkgo)
+```
+
+We can also use the ginkgo data frame to demonstrate the function `dim()`. This function is used to find or set the dimensions of an object. It finds the number of dimensions in x which can be a vector, matrix, or data frame much like the `nrow()` and `ncol()` functions. It will output the number of rows followed by the number of columns. 
+
+Let's create an example from the ginko data frame. 
+
+```{r}
+#Syntax looks like dim(x), like nrow() and ncol(). 
+dim(ginkgo)
+```
+
+## Subsetting 
+
+Subsetting is an important tool in R. It allows the user to call out specific elements from a greater object like a vector, data frame, matrix, or list. There are numerous ways to subset that we will go over in this section. 
+
+Let's start off simple with the `$` subset. This allows the user to subset an element by name.  
+
+```{r}
+#We can subset one of the columns from the ginkgo data set. 
+ginkgo = data.frame(read.csv(here('data', 'ginkgo_data_2022.csv')))
+site_dat = ginkgo$site_id
+```
+
+Another way to subset is using `[]`. This allows the user to subset a number from the vector, data frame, matrix, or list. This works similarly to the `$` subset but it can only subset the element by number. The user will have to call the element by its row or column number. The syntax looks like [rows, columns]. 
+
+Let's do a few different practice examples using the ginkgo data!
+
+```{r}
+#Let's select the first row of the ginkgo data. 
+
+first_row = ginkgo[1,]
+first_row
+#When selecting just the row or column you only need to put the desired element and can leave the other blank to select all values in that row or column. 
+```
+
+```{r}
+#Great! Now lets select the element in row 2 column 3. 
+row2_column3 = ginkgo[2, 3]
+row2_column3
+```
+
+```{r}
+#Finally, we can select all elements in the third column of the data. 
+third_column = ginkgo[, 3] 
+third_column
+```
+
+The final way to subset data is to use the `subset()` function. This will return the desired subset from a vector, matrix, or data frame. 
+
+Let's do an example to retrieve all of the Adeile penguin data from the `palmerpenguins` data set. 
+
+```{r}
+#Call the Palmer penguins data and create a data frame
+require(palmerpenguins)
+adeile_dat = subset(penguins, species == 'Adeile')
+adeile_dat
+```
+
+## Numerical Data Exploration 
+
+In this section we will go over a few different functions that help us when manipulating data. These functions include: 
+* `summary()`
+* `mean()` 
+* `sd()` 
+
+The `summary()` function is used to summarize data and yields either one value, table, or a vector. The output of the `summary()` function is determined by its arguments. 
+
+Let's do a quick example using the ginkgo data. 
+
+```{r}
+#What kind of output does this data frame have? 
+summary(ginkgo)
+```
+
+We will talk about the `mean()` function next. This is a very simple function which finds the mean for the given argument. The syntax looks like: `mean(x, trim = 0, na.rm = FALSE)`. Here we only need to worry about x which is the object that you want the mean of. `na.rm` is used sometimes when you want to remove the NA values from the function. If the argument is non-numeric the `mean()` function will return NA. 
+
+This example will be using a subset of the max width from the ginkgo data. 
+```{r}
+max_width = ginkgo$max_width
+mean(max_width)
+```
+
+The `sd()` function takes the standard deviation of the values given for `x`. It can take a numeric vector or object and like the `mean()` function it will not produce a result with a non-numeric input. It contains `na.rm` which allows the user to take out any NA values. 
+
+We can use max_width from the ginkgo data again to practice the `sd()` function. 
+
+```{r}
+sd(max_width)
+```
+
+## Graphical Data Exploration 
+
+One of the great things about R is the large variety of plots that it can create and detail with which you can make them with. We will be going over how to create some of these graphs using the ginkgos and penguins data. We will be going over: 
+
+* Scatterplots
+* Histograms
+* Boxplots 
+* and how to display multiple plots at once 
+
+Scatterplots use the `plot()` function which contains many arguments that allow the user to customize the plot. The `plot()` function takes the x and y arguments and plots them as it sees fit if no other arguments are given. You can set the x and y axis limits using the `xlim` and `ylim` arguments. The axis labels are set with the `xlab` and `ylab` arguments and we can set the title using `main`. There are some graphical parameters that are used in the plot funtion that allow the user to do different things. The `col` parameter sets the colors for lines and points. `cex` is a numerical vector that tells the function by how much lines and symbols should be scaled. Finally, `pch` is a vector that can change the symbols on the graph.
+
+We will be plotting max left depth and max leaf width as an example. 
+
+```{r}
+#You can subset within the function to get the desired x and y points. 
+plot(x = ginkgo$max_depth, y = ginkgo$max_width, xlim = c(20,90), ylim = c(20,105), xlab = 'Max leaf depth', ylab = 'Max leaf width', main = 'Leaf depth vs width', col = 2, pch = c(4), cex = c(1))
+```
+
+To create a histogram the function `hist()` is used. Here the syntax looks a bit simpler: `hist(x, breaks = 7)`. The function creates a graph from the given x value and estimates its own divisions from the data. To make the graph look nicer and ore accurate, we can use the `breaks` function to set how many breaks there will be. This can be a vector or string of numbers. 
+
+We will create a histogram of penguin flipper lengths. 
+
+```{r}
+#Feel free to play around with the number of breaks to see which fits the graph the best
+hist(penguins$flipper_length_mm, breaks = c(10), xlab = 'Flipper Lengths', main = 'Penguin Flipper Lengths')
+```
+
+
+The `boxplot()` function is used to create boxplots in R. This function takes the input of `x` and creates a box-and-whisker plot from it. 
+
+```{r}
+#First we will create a boxplot of the ginkgo petiole data. 
+boxplot(ginkgo$petiole, xlab = 'Petiole')
+```
+
+```{r}
+#Now we will create a conditional boxplot of max_depth conditioned on the seeds_present column. The ~ signifies formula notation in R which defines the relationship between the dependent (left) and independent (right) variables. 
+boxplot(ginkgo$max_depth ~ ginkgo$seeds_present, xlab = 'Seeds Present', ylab = 'Max Depth')
+```
+
+Now let's learn how to display multiple plots in the same figure. This is done using the `par()` and `mfrow` functions. The `par()` function is used to set graphical parameters. `mfrow` is a vector used to set the rows and columns of the graphical display. For example, if you wanted two graphs side-by-side the code would look like `par(mfrow = c(1,2))`. 
+Let's use some histograms as an example. 
+
+```{r}
+par(mfrow = c(2,2))
+hist(penguins$flipper_length_mm, xlab = 'Flipper Lengths', main = 'Penguin Flipper Lengths')
+hist(penguins$body_mass_g, xlab = 'Body Mass (g)', main = 'Penguin Body Mass')
+hist(penguins$bill_length_mm, xlab = 'Bill Lengths (mm)', main = 'Penguin Bill Lengths')
+hist(penguins$bill_depth_mm, xlab = 'Bill Depth', main = 'Penguin Bill Depth')
+```
+
+## Distribution Functions 
+
+In this section we will talk about the different distribution functions in R. These include: 
+
+* `dnorm()`
+* `pnorm()`
+* `qnorm()`
+* `dbinom()`
+* `pbinom()`
+* `qbinom()`
+
+`dnorm()`, `pnorm()`, and `qnorm()` are all normal distribution functions that all output something a little different. The first two functions use `x` or `q` as their input vectors of quantities while `pnorm()` uses `p` to signify a vector of probabilities. These are calculated according to the `mean` and `sd` that is specified in the function. If `mean` or `sd` are not specified R will assume the default values of 0 and 1. The argument `n` is the number of observations. `dnorm()` outputs the density, `pnorm` outputs the distribution function, and `qnorm` outputs the quantile function. 
+
+We can use the ginkgo data as an example for the normal distribution functions. 
+
+```{r}
+#We can use the mean() and sd() functions to find the mean and standard deviation of the max_width. 
+mean_mw = mean(ginkgo$max_width)
+sd_mw = sd(ginkgo$max_width)
+
+dnorm(c(ginkgo[10,3]), mean = mean_mw, sd = sd_mw)
+pnorm(c(ginkgo[10,3]), mean = mean_mw, sd = sd_mw)
+#Let's use a diffferent example for qnorm. You want to score above 90% of the population on an exam where the mean score is 1200 and the standard deviation is 100, so you calculate the minimum score you can recieve. 
+qnorm(0.9, mean = 1200, sd = 100) 
+```
+
+The other three functions `dbinom()`, `pbinom()`, and `qbinom()` are all binomial distribution functions. Much like the normal distribution functions, `dbinom()` and `pbinom()` both use `x` and `q` to represent a vector of quantities while `qbinom()` uses `p` to represent a vector of probabilities. These functions use the `size`(the number of trials) and `prob` (probability of success on each trial) arguments. Again, like the normal distribution functions, `dbinom()` outputs density, `pbinom()` outputs the distribution function, and `qbinom()` outputs the quantile function. 
+
+We can use the ginkgo data as an example. 
+```{r}
+dbinom(c(ginkgo[10,3]), size = 10, prob = 0.5)
+pbinom(c(ginkgo[10,3]), size = 10, prob = 0.5)
+qbinom(0.1, size = 10, prob = 0.4)
+```
+
+
+
+

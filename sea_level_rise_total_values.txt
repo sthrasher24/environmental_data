@@ -1,0 +1,24 @@
+File C:/environmental_data/data/total_ssp585_low_confidence_rates.nc (NC_FORMAT_NETCDF4):
+
+     3 variables (excluding dimension variables):
+        float lat[locations]   (Contiguous storage)  
+            _FillValue: NaN
+            units: Degrees North
+        float lon[locations]   (Contiguous storage)  
+            _FillValue: NaN
+            units: Degrees East
+        short sea_level_change_rate[locations,years,quantiles]   (Chunking: [1,29,107])  (Compression: shuffle,level 4)
+            _FillValue: -32768
+            units: mm per year
+            scale_factor: 0.1
+
+     3 dimensions:
+        locations  Size:1 
+        years  Size:29 
+        quantiles  Size:107 
+            _FillValue: NaN
+
+    3 global attributes:
+        description: Combined confidence output file for AR6 sea-level change projections
+        history: Created Mon Jul 12 15:16:03 2021
+        source: Files Combined: ../global/pboxes_rates/pb_2f/ssp585/total-workflow_rates.nc

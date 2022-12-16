@@ -1,0 +1,13 @@
+require(here)
+dat_del = data.frame(read.csv(here('data', 'delomys.csv')))
+
+fit_1 = lm(body_length ~ body_mass, data = dat_del)
+fit_2 = lm(body_mass ~ sex, data = dat_del)
+fit_3 = lm(body_mass ~ binomial, data = dat_del)
+fit_4 = lm(body_mass ~ sex + binomial, data = dat_del)
+fit_5 = lm(body_mass ~ sex * binomial, data = dat_del)
+
+AIC(fit_2)
+AIC(fit_3)
+AIC(fit_4)
+AIC(fit_5)

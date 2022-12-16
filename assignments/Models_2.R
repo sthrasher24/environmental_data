@@ -1,6 +1,6 @@
 #load in penguins 
 require(palmerpenguins)
-
+penguins
 #create conditional boxplot 
 boxplot(body_mass_g ~ species, data = penguins)
 
